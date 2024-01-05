@@ -1,0 +1,52 @@
+        body {
+            font-family: Arial, sans-serif;
+            text-align: right;
+        }
+        .container {
+            width: 405px;
+            height: 230px;
+        }
+        .tabs {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .tabs li {
+            margin-right: 10px;
+            padding: 10px 20px;
+            background-color: #ddd;
+            cursor: pointer;
+        }
+        .tabs li.active {
+            background-color: #34A4E3;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            width: calc(33% - 20px);
+            border: 1px solid #ddd;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .tab-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 15px;
+        }        
+        @media (max-width: 1000px) {
+            .card {
+                width: calc(50% - 20px);
+            }
+        }
