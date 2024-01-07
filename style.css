@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-    padding: 20px 400px;
+    padding: 10% 20%;
 }
 
 /* Tab Styles */
@@ -16,19 +16,34 @@ body {
     list-style-type: none;
     padding: 0;
     display: flex;
-    margin-bottom: 20px;
+    justify-content: flex-start; /* Align tabs to the right */
+    margin-bottom: 0;
 }
 
 .tabs li {
-    margin-right: 10px;
+    margin-left: 10px;
     padding: 10px 20px;
-    background-color: transparent; /* No background for non-active tabs */
-    cursor: pointer;
-    border: 1px solid #ddd; /* Optional: add border to tabs */
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis (...) after cutoff */
+    white-space: nowrap; 
+
+    color: #000;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 5px 5px 0px 0px;
+    background: #FFF;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 40px;
 }
 
 .tabs li.active {
-    background-color: blue; /* Background for active tabs */
+    border-radius: 5px 5px 0px 0px;
+    background: #34A4E3;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
     color: white;
 }
 
@@ -60,14 +75,35 @@ body {
 
 /* Card Styles */
 .card {
+    text-align: left; /* Align text to the left */
     width: calc(33% - 20px);
-    border: 1px solid #ddd;
     padding: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 768px) {
+/* Media Query for Viewport Width Less Than 1000px */
+@media (max-width: 1000px) {
+
+    .container {
+    }
+
+    .tabs {
+        flex-direction: column; /* Stack tabs vertically */
+        align-items: flex-end; /* Align tabs to the right */
+    }
+
+    .tabs li {
+        margin-bottom: 5px; /* 5px gap between tabs */
+    }
+
+    .card-container {
+        flex-direction: column; /* Stack cards vertically */
+    }
+
     .card {
-        width: calc(50% - 20px);
+        width: auto; /* Cards take full width */
+    }
+
+    #myTabContent {
+        /* Styles for myTabContent, if needed */
     }
 }
