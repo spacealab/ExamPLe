@@ -80,19 +80,43 @@ body {
     padding: 15px;
 }
 
+#myTabContent {
+    background: #FFF;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
 /* Media Query for Viewport Width Less Than 1000px */
 @media (max-width: 1000px) {
 
     .container {
+        display: flex;
+        flex-direction: row-reverse;
     }
 
     .tabs {
         flex-direction: column; /* Stack tabs vertically */
         align-items: flex-end; /* Align tabs to the right */
+        margin-top: 0;
+    }
+
+    .tab-content {
+        display: none;
+        padding: 20px;
+        background: #FFF;
+        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
     }
 
     .tabs li {
         margin-bottom: 5px; /* 5px gap between tabs */
+        margin-left: 0px;
+        border-radius: 0px 5px 5px 0px;
+    }
+
+    .tabs li.active {
+        border-radius: 0px 5px 5px 0px;
+        background: #34A4E3;
+        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+        color: white;
     }
 
     .card-container {
@@ -104,6 +128,7 @@ body {
     }
 
     #myTabContent {
-        /* Styles for myTabContent, if needed */
+        background: #FFF;
+        box-shadow: -2px 0px 4px 0px rgba(0, 0, 0, 0.25);
     }
 }
