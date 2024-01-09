@@ -1,8 +1,11 @@
-document.addEventListener("DOMContentLoaded", function() {
-    fetch('https://lms.navaxcollege.com/exam.php')
-        .then(response => response.json())
-        .then(data => createTabs(data.data.tabs))
-        .catch(error => console.error('Error:', error));
+document.addEventListener("DOMContentLoaded", async function() {
+    try {
+        const response = await fetch('https://lms.navaxcollege.com/exam.php');
+        const data = await response.json();
+        createTabs(data.data.tabs);
+    } catch (error) {
+        console.error('Error:', error);
+    }
 });
 
 function createTabs(tabs) {
@@ -10,6 +13,7 @@ function createTabs(tabs) {
     const tabContent = document.getElementById('myTabContent');
 
     tabs.forEach((tab, index) => {
+        // Create tab title
         const tabItem = document.createElement('li');
         const tabTitle = document.createElement('span');
         tabTitle.className = 'tab-title';
@@ -20,6 +24,7 @@ function createTabs(tabs) {
         if (index === 0) tabItem.classList.add('active');
         tabList.appendChild(tabItem);
 
+        // Create tab content
         const contentDiv = document.createElement('div');
         contentDiv.className = 'tab-content';
         if (index === 0) contentDiv.classList.add('active');
@@ -43,18 +48,10 @@ function setActiveTab(activeIndex) {
     const contents = document.querySelectorAll('.tab-content');
 
     tabs.forEach((tab, index) => {
-        if (index === activeIndex) {
-            tab.classList.add('active');
-        } else {
-            tab.classList.remove('active');
-        }
+        tab.classList.toggle('active', index === activeIndex);
     });
 
     contents.forEach((content, index) => {
-        if (index === activeIndex) {
-            content.classList.add('active');
-        } else {
-            content.classList.remove('active');
-        }
+        content.classList.toggle('active', index === activeIndex);
     });
 }
